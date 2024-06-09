@@ -84,9 +84,11 @@
         // Inserting data into database
         $result = $database->insertData($name, $email, $interests_string); //inserting data in the database
         if ($result) { //if the insertion was sucessful
-          echo "<p>Data added successfully.</p>";
-          echo "<a href='view.php'>View Result</a>";
-        } else {
+           // Redirecting to thank you page on success
+           header("Location: thank_you.php");
+           exit();
+        }
+            else {
           echo "<p>There was an error adding the data.</p>";
           echo "Error: " . $database->connection->error;
         }
@@ -96,6 +98,7 @@
      </div>
   </main>
   <footer>
+    
     <p>&copy; 2024 Subscriber Portal</p>
   </footer>
 </body>
